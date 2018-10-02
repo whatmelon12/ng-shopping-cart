@@ -8,7 +8,7 @@
     <div *ngIf="hasErrors('email')" class="form-error">
         <p *ngIf="hasError('email', 'required')">This field is required!</p>
         <p *ngIf="hasError('email', 'email')">Input a valid email address!</p>
-      </div>
+    </div>
   </div>
   <div class="form-group">
       <label>Password</label>
@@ -18,4 +18,8 @@
       </div>
   </div>
   <button type="button" class="btn btn-primary btn-block" (click)="submit()">Submit</button>
+  <div class="form-accent" style="text-align: center">
+      <a routerLink="/user/forgotpassword">Forgot your password?</a> |
+    <a routerLink="/user/singup">Don't have an account?</a>
+  </div>
 </form>

@@ -10,3 +10,9 @@ form {
     font-size: 12px;
     font-weight: bold;
 }
+
+.form-accent {
+    color: turquoise;
+    font-size: 12px;
+    font-weight: bold;
+}

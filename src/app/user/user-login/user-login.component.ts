@@ -39,7 +39,7 @@ export class UserLoginComponent implements OnInit {
     if(this.form.valid){
       let credentials = this.form.value;
       this.auth.login(credentials.email, credentials.password)
-        .then(() => this.router.navigateByUrl('/'))
+        .then((user) => this.router.navigateByUrl('/'))
         .catch((error) => console.log(error));
     }
   }

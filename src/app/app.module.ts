@@ -24,6 +24,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { UserLoginComponent } from './user/user-login/user-login.component';
 
 import { AuthService } from './core/service/auth.service';
+import { UserSingupComponent } from './user/user-singup/user-singup.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthService } from './core/service/auth.service';
     AdminProductsComponent,
     AdminOrdersComponent,
     UserLoginComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    UserSingupComponent
   ],
   imports: [
     BrowserModule,
