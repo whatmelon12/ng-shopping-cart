@@ -1,3 +1,4 @@
+import { BaseFormComponent } from './../../shared/components/base-form/base-form.component';
 import { AuthService } from './../../core/service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, AbstractControl, Validators } from '@angular/forms';
@@ -8,31 +9,17 @@ import { Router } from '../../../../node_modules/@angular/router';
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.css']
 })
-export class UserLoginComponent implements OnInit {
-
-  form: AbstractControl;
+export class UserLoginComponent extends BaseFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private router: Router,
-              private auth: AuthService) { }
+              private auth: AuthService) { super() }
 
   ngOnInit() {
     this.form = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', Validators.required]
     });
-  }
-
-  hasErrors(control: string){
-    let formControl: AbstractControl = this.form.get(control);
-    if (!formControl.valid && formControl.touched) return true;
-    return false;
-  }
-
-  hasError(control: string, validator: string) {
-    let formControl: AbstractControl = this.form.get(control);
-    if (!formControl.valid && formControl.touched && formControl.errors[validator]) return true;
-    return false;
   }
 
   submit(){

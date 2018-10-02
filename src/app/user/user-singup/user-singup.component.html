@@ -1,3 +1,43 @@
-<p>
-  user-singup works!
-</p>
+<form [formGroup]="form">
+  <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+      <h6>It's free...</h6>
+  </div>
+  <div class="form-group">
+    <label>First Name</label>
+    <input formControlName="firstName" type="text" class="form-control">
+  </div>
+  <div *ngIf="hasErrors('firstName')" class="form-error">
+      <p *ngIf="hasError('firstName', 'required')">This field is required!</p>
+  </div>
+  <div class="form-group">
+      <label>Last Name</label>
+      <input formControlName="lastName" type="text" class="form-control">
+    </div>
+    <div *ngIf="hasErrors('lastName')" class="form-error">
+        <p *ngIf="hasError('lastName', 'required')">This field is required!</p>
+  </div>
+  <div class="form-group">
+      <label>Email Address</label>
+      <input formControlName="email" type="text" class="form-control">
+    </div>
+    <div *ngIf="hasErrors('email')" class="form-error">
+        <p *ngIf="hasError('email', 'required')">This field is required!</p>
+        <p *ngIf="hasError('email', 'email')">Input a valid email address!</p>
+  </div>
+  <div class="form-group">
+      <label>Password</label>
+      <input formControlName="password" type="password" class="form-control">
+      <div *ngIf="hasErrors('password')" class="form-error">
+        <p *ngIf="hasError('password', 'required')">This field is required!</p>
+      </div>
+  </div>
+  <div class="form-group">
+      <label>Confirm Password</label>
+      <input formControlName="confirmPassword" type="password" class="form-control">
+      <div *ngIf="hasErrors('confirmPassword')" class="form-error">
+        <p *ngIf="hasError('confirmPassword', 'required')">This field is required!</p>
+      </div>
+  </div>
+  <button type="button" class="btn btn-primary btn-block" (click)="submit()">Create Account</button>
+</form>

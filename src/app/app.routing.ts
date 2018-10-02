@@ -5,11 +5,12 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { OrderSuccessComponent } from './shared/order-success/order-success.component';
+import { OrderSuccessComponent } from './shared/components/order-success/order-success.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
+import { UserSingupComponent } from './user/user-singup/user-singup.component';
 
 const routes: Routes = [
     {
@@ -39,6 +40,10 @@ const routes: Routes = [
     {
         path: 'user/login',
         component: UserLoginComponent
+    },
+    {
+        path: 'user/signup',
+        component: UserSingupComponent
     },
     {
         path: 'admin/products',
