@@ -1,3 +1,4 @@
+import { AuthGuard } from './core/guards/auth-guard.service';
 import { environment } from './../environments/environment';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,10 +23,11 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
-
-import { AuthService } from './core/service/auth.service';
 import { UserSingupComponent } from './user/user-singup/user-singup.component';
 import { BaseFormComponent } from './shared/components/base-form/base-form.component';
+
+import { AuthService } from './core/service/auth.service';
+import { AdminNewProductComponent } from './admin/admin-new-product/admin-new-product.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { BaseFormComponent } from './shared/components/base-form/base-form.compo
     UserLoginComponent,
     UserLoginComponent,
     UserSingupComponent,
-    BaseFormComponent
+    BaseFormComponent,
+    AdminNewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { BaseFormComponent } from './shared/components/base-form/base-form.compo
     routingModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

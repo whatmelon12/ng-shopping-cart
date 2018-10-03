@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-body { padding: 80px; }
+body { padding: 10%; }
+
+.img-resize {
+    max-width: 400px;
+    max-height: 400px;
+}

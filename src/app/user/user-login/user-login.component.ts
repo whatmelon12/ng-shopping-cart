@@ -1,8 +1,10 @@
-import { BaseFormComponent } from './../../shared/components/base-form/base-form.component';
-import { AuthService } from './../../core/service/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, AbstractControl, Validators } from '@angular/forms';
-import { Router } from '../../../../node_modules/@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { BaseFormComponent } from './../../shared/components/base-form/base-form.component';
+
+import { AuthService } from './../../core/service/auth.service';
 
 @Component({
   selector: 'app-user-login',
@@ -26,7 +28,9 @@ export class UserLoginComponent extends BaseFormComponent implements OnInit {
     if(this.form.valid){
       let credentials = this.form.value;
       this.auth.login(credentials.email, credentials.password)
-        .then((user) => this.router.navigateByUrl('/'))
+        .then((user) => {
+          this.router.navigateByUrl('/');
+        })
         .catch((error) => console.log(error));
     }
   }

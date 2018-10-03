@@ -11,6 +11,9 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { UserSingupComponent } from './user/user-singup/user-singup.component';
+import { AdminNewProductComponent } from './admin/admin-new-product/admin-new-product.component';
+
+import { AuthGuard } from './core/guards/auth-guard.service';
 
 const routes: Routes = [
     {
@@ -27,15 +30,18 @@ const routes: Routes = [
     },
     {
         path: 'checkout',
-        component: CheckOutComponent
+        component: CheckOutComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'order-success',
-        component: OrderSuccessComponent
+        component: OrderSuccessComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'user/orders',
-        component: MyOrdersComponent
+        component: MyOrdersComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'user/login',
@@ -47,11 +53,18 @@ const routes: Routes = [
     },
     {
         path: 'admin/products',
-        component: AdminProductsComponent
+        component: AdminProductsComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'admin/products/new',
+        component: AdminNewProductComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'admin/orders',
-        component: AdminOrdersComponent
+        component: AdminOrdersComponent,
+        canActivate: [AuthGuard]
     }
 ];
 
