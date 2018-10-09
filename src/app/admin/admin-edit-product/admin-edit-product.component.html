@@ -1,0 +1,48 @@
+<!-- <div class="row">
+    <div class="col-12 col-md-6">
+      <form [formGroup]="form">
+          <div class="form-group">
+            <label><strong>Title</strong></label>
+            <input formControlName="title" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label><strong>Price</strong></label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input formControlName="price" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label><strong>Category</strong></label>
+            <select formControlName="category" class="form-control">
+              <option *ngFor="let category of categories$ | async" [value]="category.id">{{ category.name }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label><strong>Image URL</strong></label>
+            <input formControlName="imageUrl" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <button type="button" class="btn btn-block btn-primary" (click)="submit()">Save</button>
+              </div>
+              <div class="col-12 col-md-6">
+                <a routerLink="/admin/products" class="btn btn-block btn-danger">Cancel</a>
+              </div>
+            </div>        
+          </div>
+      </form>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <img class="card-img-top img-fluid" [src]="getForm().imageUrl" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><strong>{{ getForm().title }}</strong></h5>
+          <p class="card-text">{{ '$' + getForm().price }}</p>
+        </div>
+      </div>
+    </div>
+  </div> -->

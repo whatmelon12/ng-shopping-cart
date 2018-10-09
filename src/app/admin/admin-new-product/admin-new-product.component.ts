@@ -3,6 +3,11 @@ import { Component, OnInit } from '@angular/core';
 
 import { BaseFormComponent } from './../../shared/components/base-form/base-form.component';
 
+import { ProductService } from './../../core/service/product.service';
+import { CategoryService } from './../../core/service/category.service';
+import { Observable } from '../../../../node_modules/rxjs';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-admin-new-product',
   templateUrl: './admin-new-product.component.html',
@@ -10,7 +15,15 @@ import { BaseFormComponent } from './../../shared/components/base-form/base-form
 })
 export class AdminNewProductComponent extends BaseFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { super() }
+  categories$: Observable<any> = null;
+
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              categoryServices: CategoryService,
+              private productService: ProductService) { 
+    super();
+    this.categories$ = categoryServices.getAll(); 
+  }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -23,6 +36,16 @@ export class AdminNewProductComponent extends BaseFormComponent implements OnIni
 
   getForm() {
     return this.form.value;
+  }
+
+  submit() {
+    if(this.form.valid){
+      let data = this.form.value;
+      this.productService.create(data).then(() => {
+        alert('Successfully created new product.');
+        this.router.navigateByUrl('/admin/products');
+      });
+    }
   }
 
 }

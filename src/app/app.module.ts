@@ -1,4 +1,3 @@
-import { AuthGuard } from './core/guards/auth-guard.service';
 import { environment } from './../environments/environment';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,10 +23,13 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserSingupComponent } from './user/user-singup/user-singup.component';
+import { AdminNewProductComponent } from './admin/admin-new-product/admin-new-product.component';
 import { BaseFormComponent } from './shared/components/base-form/base-form.component';
 
 import { AuthService } from './core/service/auth.service';
-import { AdminNewProductComponent } from './admin/admin-new-product/admin-new-product.component';
+import { ProductService } from './core/service/product.service';
+import { AuthGuard } from './core/guards/auth-guard.service';
+import { AdminEditProductComponent } from './admin/admin-edit-product/admin-edit-product.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { AdminNewProductComponent } from './admin/admin-new-product/admin-new-pr
     UserLoginComponent,
     UserSingupComponent,
     BaseFormComponent,
-    AdminNewProductComponent
+    AdminNewProductComponent,
+    AdminEditProductComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { AdminNewProductComponent } from './admin/admin-new-product/admin-new-pr
   ],
   providers: [
     AuthService,
+    ProductService,
     AuthGuard
   ],
   bootstrap: [AppComponent]
