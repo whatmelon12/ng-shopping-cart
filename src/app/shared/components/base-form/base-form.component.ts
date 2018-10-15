@@ -12,6 +12,10 @@ export class BaseFormComponent {
 
   constructor() { }
 
+  getForm() {
+    return this.form.value;
+  }
+
   hasErrors(control: string){
     let formControl: AbstractControl = this.form.get(control);
     if (!formControl.valid && formControl.touched) return true;

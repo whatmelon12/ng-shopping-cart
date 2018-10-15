@@ -14,7 +14,7 @@ import { ProductService } from 'src/app/core/service/product.service';
 })
 export class AdminEditProductComponent extends BaseFormComponent implements OnInit {
 
-  product: Product;
+  product: any = null;
 
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -27,17 +27,22 @@ export class AdminEditProductComponent extends BaseFormComponent implements OnIn
       router.navigateByUrl('/admin/products');
     }
     else{
-      productService.getOne(id).subscribe(product => console.log(product[0]));
+      productService.getOne(id).subscribe(product => this.product = product[0]);
     }
   }
 
   ngOnInit() {
-    // this.form = this.fb.group({
-    //   title: [this.product.title, Validators.required],
-    //   price: [this.product.price, Validators.required],
-    //   category: [this.product.category, Validators.required],
-    //   imageUrl: [this.product.imageUrl, Validators.required]
-    // });
+    this.form = this.fb.group({
+      id: ['', Validators.required],
+      title: ['', Validators.required],
+      price: ['', Validators.required],
+      category: ['', Validators.required],
+      imageUrl: ['', Validators.required]
+    });
+
+    if(this.product){
+      this.form.patchValue(this.product);
+    }
   }
 
 }

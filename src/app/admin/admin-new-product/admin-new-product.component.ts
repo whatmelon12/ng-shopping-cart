@@ -34,10 +34,6 @@ export class AdminNewProductComponent extends BaseFormComponent implements OnIni
     });
   }
 
-  getForm() {
-    return this.form.value;
-  }
-
   submit() {
     if(this.form.valid){
       let data = this.form.value;
